@@ -13,16 +13,14 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FlowerHusbandryMod.MOD_ID)
-public class FlowerHusbandryMod
-{
-    
+public class FlowerHusbandryMod {
+
     public static final String MOD_ID = "flowerhusbandrymod";
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
 
-
-    public FlowerHusbandryMod(){
+    public FlowerHusbandryMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
@@ -38,14 +36,11 @@ public class FlowerHusbandryMod
     }
 
 
-
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
     }
