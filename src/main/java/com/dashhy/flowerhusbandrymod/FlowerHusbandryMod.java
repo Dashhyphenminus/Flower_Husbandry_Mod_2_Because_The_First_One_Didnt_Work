@@ -19,14 +19,12 @@ public class FlowerHusbandryMod {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-
     public FlowerHusbandryMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // VERY IMPORTANT COMMENT
-        
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -36,8 +34,8 @@ public class FlowerHusbandryMod {
 
     }
 
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    // You can use EventBusSubscriber to automatically register all static methods
+    // in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
