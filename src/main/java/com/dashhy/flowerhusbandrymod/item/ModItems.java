@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FlowerHusbandryMod.MOD_ID);
 
-    public static final RegistryObject<Item> WATERING_CAN = ITEMS.register("watering_can", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> WATERING_CAN = ITEMS.register("watering_can", () -> new Item(new Item.Properties().stacksTo(1)));
 
 
     public static void register(IEventBus eventBus) {
