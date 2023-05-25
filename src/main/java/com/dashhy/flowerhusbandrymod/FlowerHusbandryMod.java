@@ -1,9 +1,11 @@
 package com.dashhy.flowerhusbandrymod;
 
+import com.dashhy.flowerhusbandrymod.item.ModCreativeModeTab;
 import com.dashhy.flowerhusbandrymod.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +37,13 @@ public class FlowerHusbandryMod {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 
+    }
+
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if (event.getTab() == ModCreativeModeTab.PLANT_TAB) {
+            event.accept(ModItems.WATERING_CAN);
+            event.accept(ModItems.RED_ROSE);
+        }
     }
 
 
