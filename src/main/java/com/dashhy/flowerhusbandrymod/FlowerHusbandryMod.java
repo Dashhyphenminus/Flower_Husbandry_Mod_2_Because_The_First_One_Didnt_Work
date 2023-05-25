@@ -1,5 +1,6 @@
 package com.dashhy.flowerhusbandrymod;
 
+import com.dashhy.flowerhusbandrymod.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,8 +23,8 @@ public class FlowerHusbandryMod {
 
     public FlowerHusbandryMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        // EVEN MOREIMPORTANT COMMENT
-        // VERY IMPORTANT COMMENT
+
+        ModItems.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
