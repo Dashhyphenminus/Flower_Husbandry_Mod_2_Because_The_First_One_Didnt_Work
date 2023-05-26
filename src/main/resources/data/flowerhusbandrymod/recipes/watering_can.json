@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "BBA",
+    " BB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:water_bucket"
+    },
+    "B":{
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "flowerhusbandrymod:watering_can"
+  }
+}
