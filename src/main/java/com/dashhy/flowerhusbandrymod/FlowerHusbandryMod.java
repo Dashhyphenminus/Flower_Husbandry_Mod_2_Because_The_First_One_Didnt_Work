@@ -1,5 +1,6 @@
 package com.dashhy.flowerhusbandrymod;
 
+import com.dashhy.flowerhusbandrymod.block.ModBlocks;
 import com.dashhy.flowerhusbandrymod.item.ModCreativeModeTab;
 import com.dashhy.flowerhusbandrymod.item.ModItems;
 import com.mojang.logging.LogUtils;
@@ -27,6 +28,7 @@ public class FlowerHusbandryMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
@@ -44,12 +46,12 @@ public class FlowerHusbandryMod {
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == ModCreativeModeTab.PLANT_TAB) {
             event.accept(ModItems.WATERING_CAN);
-            event.accept(ModItems.RED_ROSE);
-            event.accept(ModItems.WHITE_ROSE);
-            event.accept(ModItems.PINK_ROSE);
-            event.accept(ModItems.ORANGE_ROSE);
-            event.accept(ModItems.YELLOW_ROSE);
-            event.accept(ModItems.RAINBOW_ROSE);
+            event.accept(ModBlocks.RED_ROSE);
+            event.accept(ModBlocks.WHITE_ROSE);
+            event.accept(ModBlocks.PINK_ROSE);
+            event.accept(ModBlocks.YELLOW_ROSE);
+            event.accept(ModBlocks.ORANGE_ROSE);
+            event.accept(ModBlocks.RAINBOW_ROSE);
         }
     }
 

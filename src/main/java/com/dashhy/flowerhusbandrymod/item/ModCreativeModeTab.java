@@ -19,7 +19,7 @@ public class ModCreativeModeTab {
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         PLANT_TAB = event.registerCreativeModeTab(new ResourceLocation(FlowerHusbandryMod.MOD_ID, "plant_tab"),
-                builder -> builder.icon(() -> new ItemStack(ModItems.RED_ROSE.get()))
+                builder -> builder.icon(() -> new ItemStack(ModItems.WATERING_CAN.get()))
                 .title(Component.translatable("creativemodetab.plant_tab")));
     }
 }

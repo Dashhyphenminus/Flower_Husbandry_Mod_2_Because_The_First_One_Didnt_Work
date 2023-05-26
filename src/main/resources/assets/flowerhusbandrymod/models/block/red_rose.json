@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "flowerhusbandrymod:block/red_rose"
+  },
+  "redner_type": "cutout"
+}

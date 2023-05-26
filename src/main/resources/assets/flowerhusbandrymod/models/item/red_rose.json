@@ -1,6 +1,3 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "flowerhusbandrymod:item/red_rose"
-  }
+  "parent": "flowerhusbandrymod:block/red_rose"
 }
