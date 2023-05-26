@@ -35,7 +35,6 @@ public class FlowerHusbandryMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -46,6 +45,11 @@ public class FlowerHusbandryMod {
         if (event.getTab() == ModCreativeModeTab.PLANT_TAB) {
             event.accept(ModItems.WATERING_CAN);
             event.accept(ModItems.RED_ROSE);
+            event.accept(ModItems.WHITE_ROSE);
+            event.accept(ModItems.PINK_ROSE);
+            event.accept(ModItems.ORANGE_ROSE);
+            event.accept(ModItems.YELLOW_ROSE);
+            event.accept(ModItems.RAINBOW_ROSE);
         }
     }
 

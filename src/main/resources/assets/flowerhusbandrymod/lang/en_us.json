@@ -1,5 +1,11 @@
 {
   "item.flowerhusbandrymod.watering_can": "Watering can",
   "item.flowerhusbandrymod.red_rose": "Red rose",
+  "item.flowerhusbandrymod.white_rose": "White rose",
+  "item.flowerhusbandrymod.pink_rose": "Pink rose",
+  "item.flowerhusbandrymod.yellow_rose": "Yellow rose",
+  "item.flowerhusbandrymod.orange_rose": "Orange rose",
+  "item.flowerhusbandrymod.rainbow_rose": "Rainbow rose",
   "creativemodetab.plant_tab": "Plant tab"
+
 }
