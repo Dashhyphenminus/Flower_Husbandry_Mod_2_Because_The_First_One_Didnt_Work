@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "flowerhusbandrymod:block/red_rose"
+    "cross": "flowerhusbandrymod:block/white_rose"
   },
   "render_type": "cutout"
 }
