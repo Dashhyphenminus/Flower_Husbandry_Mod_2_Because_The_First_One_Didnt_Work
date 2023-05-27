@@ -8,6 +8,12 @@
   "item.flowerhusbandrymod.rainbow_rose": "Rainbow rose",
 
   "block.flowerhusbandrymod.red_rose": "Red rose block",
+  "block.flowerhusbandrymod.white_rose": "White rose block",
+  "block.flowerhusbandrymod.orange_rose": "Orange rose block",
+  "block.flowerhusbandrymod.pink_rose": "Pink rose block",
+  "block.flowerhusbandrymod.yellow_rose": "Yellow rose block",
+  "block.flowerhusbandrymod.rainbow_rose": "Rainbow rose block",
+
   "creativemodetab.plant_tab": "Plant tab"
 
 }
