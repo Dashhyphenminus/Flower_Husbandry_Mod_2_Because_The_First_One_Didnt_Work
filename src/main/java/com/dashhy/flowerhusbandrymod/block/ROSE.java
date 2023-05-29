@@ -9,4 +9,11 @@ public class ROSE extends FlowerBlock {
     public ROSE(Supplier<MobEffect> effectSupplier, int p_53513_, Properties p_53514_) {
         super(effectSupplier, p_53513_, p_53514_);
     }
+
+
+
+
+    public void pollinate() {
+
+    }
 }
