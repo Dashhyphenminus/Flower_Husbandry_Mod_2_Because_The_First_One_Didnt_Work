@@ -2,23 +2,20 @@ package com.dashhy.flowerhusbandrymod.item.custom;
 
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
+
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 import static com.dashhy.flowerhusbandrymod.block.ModBlocks.*;
-import static com.dashhy.flowerhusbandrymod.item.ModItems.WATERING_CAN;
-import static net.minecraft.world.level.block.Blocks.GRASS_BLOCK;
+
+import java.util.Arrays;
+
+import org.jetbrains.annotations.NotNull;
 
 
 public class WateringCan extends Item {
@@ -32,7 +29,7 @@ public class WateringCan extends Item {
     boolean idkWhyThisNeedsToExistButHereWeAre = false;
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
 
 
         if (!idkWhyThisNeedsToExistButHereWeAre) {
