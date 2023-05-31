@@ -50,11 +50,13 @@ public class WateringCan extends Item {
             BlockPos blockPos = context.getClickedPos();
             BlockState blockState = level.getBlockState(blockPos);
             Player player = context.getPlayer();
-            player.getCooldowns().addCooldown(this, 20);
+            assert !(player == null);
+            player.getCooldowns().addCooldown(this, 10);
             //ItemStack itemStack = context.getItemInHand();
 
-            if (first) {
 
+            if (first) {
+                newFlowerColorVal = 0;
                 if (blockState.getBlock().equals(WHITE_ROSE.get())) {
                     newFlowerColorVal += 0;
                 } else if (blockState.getBlock().equals(PINK_ROSE.get())) {
