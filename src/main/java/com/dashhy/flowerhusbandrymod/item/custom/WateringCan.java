@@ -32,14 +32,6 @@ public class WateringCan extends Item {
     boolean idkWhyThisNeedsToExistButHereWeAre = false;
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
-
-        }
-        return super.use(level, player, hand);
-    }
-
-    @Override
     public InteractionResult useOn(UseOnContext context) {
 
 
@@ -52,7 +44,7 @@ public class WateringCan extends Item {
             Player player = context.getPlayer();
             assert !(player == null);
             player.getCooldowns().addCooldown(this, 10);
-            //ItemStack itemStack = context.getItemInHand();
+
 
 
             if (first) {
