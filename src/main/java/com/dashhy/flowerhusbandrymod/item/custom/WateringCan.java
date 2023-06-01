@@ -3,15 +3,19 @@ package com.dashhy.flowerhusbandrymod.item.custom;
 
 import net.minecraft.core.BlockPos;
 
+import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import static com.dashhy.flowerhusbandrymod.block.ModBlocks.*;
+import com.dashhy.flowerhusbandrymod.block.ROSE;
 
 import java.util.Arrays;
 
@@ -26,7 +30,7 @@ public class WateringCan extends Item {
     private final double[] colorValues = {0, 1, 2, 3, 4, 5};
     private double newFlowerColorVal = 0;
 
-    boolean idkWhyThisNeedsToExistButHereWeAre = false;
+    private boolean  idkWhyThisNeedsToExistButHereWeAre = false;
 
     @Override
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
@@ -42,6 +46,9 @@ public class WateringCan extends Item {
             assert !(player == null);
             player.getCooldowns().addCooldown(this, 10);
 
+//            Vec3i vector = new Vec3i(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+//            BlockState test = level.getBlockState(BlockPos.MutableBlockPos.setX());
+//            test.getBlock();
 
 
             if (first) {
@@ -82,7 +89,7 @@ public class WateringCan extends Item {
                 Arrays.sort(rands);
                 newFlowerColorVal += rands[1];
 
-                if (Math.random() < 0.2) {
+                if (Math.random() < 0.02) {
                     ItemStack stack = new ItemStack(RAINBOW_ROSE.get());
                     player.getInventory().add(stack);
                 } else if (newFlowerColorVal < colorValues[1]) {
