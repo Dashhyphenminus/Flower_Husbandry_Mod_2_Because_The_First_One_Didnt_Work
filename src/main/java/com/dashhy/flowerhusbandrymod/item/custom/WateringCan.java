@@ -46,9 +46,9 @@ public class WateringCan extends Item {
             assert !(player == null);
             player.getCooldowns().addCooldown(this, 10);
 
-//            Vec3i vector = new Vec3i(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-//            BlockState test = level.getBlockState(BlockPos.MutableBlockPos.setX());
-//            test.getBlock();
+
+            BlockState test = level.getBlockState(blockPos.north(-1).east(2));
+            System.out.println(test.getBlock());
 
 
             if (first) {
