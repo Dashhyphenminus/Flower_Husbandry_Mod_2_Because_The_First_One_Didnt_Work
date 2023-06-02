@@ -4,6 +4,7 @@ package com.dashhy.flowerhusbandrymod.item.custom;
 import com.dashhy.flowerhusbandrymod.block.Rose;
 import net.minecraft.core.BlockPos;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.util.RandomSource;
 
 import static com.dashhy.flowerhusbandrymod.block.ModBlocks.*;
 
@@ -58,7 +60,7 @@ public class WateringCan extends Item {
             int x = pos.getX();
             int y = pos.getY();
             int z = pos.getZ();
-            BlockPos thingie = new BlockPos(x, y + 1, z);
+            BlockPos thingie = new BlockPos(x, y , z+1);
             search(level, thingie, i + 1);
 
             thingie = new BlockPos(x + 1, y, z);
@@ -67,7 +69,7 @@ public class WateringCan extends Item {
             thingie = new BlockPos(x-1, y , z);
             search(level, thingie, i + 1);
 
-            thingie = new BlockPos(x, y-1, z);
+            thingie = new BlockPos(x, y, z-1);
             search(level, thingie, i + 1);
         }
         System.out.println("nothing there but it works!");
@@ -97,6 +99,13 @@ public class WateringCan extends Item {
             if (test.getBlock() instanceof Rose) {
                 System.out.println("it is indeed an instance of rose");
             }
+            double d0 = this.random.nextGaussian() * 0.02D;
+            double d1 = this.random.nextGaussian() * 0.02D;
+            double d2 = this.nextGaussian() * 0.02D;
+            int x = blockPos.getX();
+            int y = blockPos.getY();
+            int z = blockPos.getZ();
+            level.addParticle(ParticleTypes.HEART, x, y + 0.5D, z, d0, d1, d2);
 
             search(level, blockPos, 0);
 
