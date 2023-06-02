@@ -24,46 +24,50 @@ public class WateringCan extends Item {
     public WateringCan(Properties properties) {
         super(properties);
     }
+
     private boolean first = true;
     private final double[] colorValues = {0, 0.5, 1.5, 2.5, 3.5, 4.5};
     private double newFlowerColorVal = 0;
 
-    private boolean  idkWhyThisNeedsToExistButHereWeAre = false;
+    private boolean idkWhyThisNeedsToExistButHereWeAre = false;
 
 
+    public BlockState search(Level level, BlockPos pos, int i) {
 
-    public BlockState search(Level level, BlockPos pos, int i){
-
-        if(i<3){
-        BlockState block1 = level.getBlockState(pos.north(1);
-        BlockState block2 = level.getBlockState(pos.east(1);
-        BlockState block3 = level.getBlockState(pos.south(1));
-        BlockState block4 = level.getBlockState(pos.west(1);
-            if(block1.getBlock() instanceof Rose)
+        if (i < 3) {
+            BlockState block1 = level.getBlockState(pos.north(1);
+            BlockState block2 = level.getBlockState(pos.east(1);
+            BlockState block3 = level.getBlockState(pos.south(1));
+            BlockState block4 = level.getBlockState(pos.west(1);
+            if (block1.getBlock() instanceof Rose)
                 return block1;
-            if(block2.getBlock() instanceof Rose)
+            if (block2.getBlock() instanceof Rose)
                 return block2;
-            if(block3.getBlock() instanceof Rose)
+            if (block3.getBlock() instanceof Rose)
                 return block3;
-            if(block4.getBlock() instanceof Rose)
+            if (block4.getBlock() instanceof Rose)
                 return block4;
             int x = pos.getX();
             int y = pos.getY();
             int z = pos.getZ();
-BlockPos thingie = new BlockPos(x,y+1,z);
-        search(level, thingie, i+1);
+            BlockPos thingie = new BlockPos(x, y + 1, z);
+            search(level, thingie, i + 1);
 
-thingie = new BlockPos(x+1,y,z);
-            search(level, thingie, i+1);
+            thingie = new BlockPos(x + 1, y, z);
+            search(level, thingie, i + 1);
+
+            thingie = new BlockPos(x-1, y , z);
+            search(level, thingie, i + 1);
+
+            thingie = new BlockPos(x, y-1, z);
+            search(level, thingie, i + 1);
         }
+
         return null;
     }
+
     @Override
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
-
-
-
-
 
 
         if (!idkWhyThisNeedsToExistButHereWeAre) {
