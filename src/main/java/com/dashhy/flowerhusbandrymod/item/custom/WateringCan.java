@@ -39,18 +39,22 @@ public class WateringCan extends Item {
             BlockState block2 = level.getBlockState(pos.east(1));
             BlockState block3 = level.getBlockState(pos.south(1));
             BlockState block4 = level.getBlockState(pos.west(1));
-            if (block1.getBlock() instanceof Rose)
+            if (block1.getBlock() instanceof Rose) {
                 System.out.println("IT WORKS!!!!");
                 return block1;
-            if (block2.getBlock() instanceof Rose)
+            }
+            if (block2.getBlock() instanceof Rose) {
                 System.out.println("IT WORKS!!!!");
-            return block2;
-            if (block3.getBlock() instanceof Rose)
+                return block2;
+            }
+            if (block3.getBlock() instanceof Rose) {
                 System.out.println("IT WORKS!!!!");
-            return block3;
-            if (block4.getBlock() instanceof Rose)
+                return block3;
+            }
+            if (block4.getBlock() instanceof Rose) {
                 System.out.println("IT WORKS!!!!");
-            return block4;
+                return block4;
+            }
             int x = pos.getX();
             int y = pos.getY();
             int z = pos.getZ();
