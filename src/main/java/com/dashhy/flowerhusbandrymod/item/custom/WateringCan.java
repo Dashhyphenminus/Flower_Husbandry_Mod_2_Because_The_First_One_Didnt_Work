@@ -25,7 +25,7 @@ public class WateringCan extends Item {
         super(properties);
     }
     private boolean first = true;
-    private final double[] colorValues = {0, 1, 2, 3, 4, 5};
+    private final double[] colorValues = {0, 0.5, 1.5, 2.5, 3.5, 4.5};
     private double newFlowerColorVal = 0;
 
     private boolean  idkWhyThisNeedsToExistButHereWeAre = false;
@@ -60,11 +60,14 @@ public class WateringCan extends Item {
 
 
         if (!idkWhyThisNeedsToExistButHereWeAre) {
+
+
             //System.out.println("hello world");
 
             Level level = context.getLevel();
             BlockPos blockPos = context.getClickedPos();
             BlockState blockState = level.getBlockState(blockPos);
+
             Player player = context.getPlayer();
             assert !(player == null);
             player.getCooldowns().addCooldown(this, 10);
