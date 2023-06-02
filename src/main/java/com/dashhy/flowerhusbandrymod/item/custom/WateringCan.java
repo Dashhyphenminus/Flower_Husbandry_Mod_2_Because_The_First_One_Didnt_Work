@@ -47,9 +47,16 @@ public class WateringCan extends Item {
                 return block3;
             if(block4.getBlock() instanceof Rose)
                 return block4;
-BlockPos thingie = new BlockPos(3,4,5);
-        search(level, );
+            int x = pos.getX();
+            int y = pos.getY();
+            int z = pos.getZ();
+BlockPos thingie = new BlockPos(x,y+1,z);
+        search(level, thingie, i+1);
+
+thingie = new BlockPos(x+1,y,z);
+            search(level, thingie, i+1);
         }
+        return null;
     }
     @Override
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
