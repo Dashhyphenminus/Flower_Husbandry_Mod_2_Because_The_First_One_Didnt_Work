@@ -35,18 +35,22 @@ public class WateringCan extends Item {
     public BlockState search(Level level, BlockPos pos, int i) {
 
         if (i < 3) {
-            BlockState block1 = level.getBlockState(pos.north(1);
-            BlockState block2 = level.getBlockState(pos.east(1);
+            BlockState block1 = level.getBlockState(pos.north(1));
+            BlockState block2 = level.getBlockState(pos.east(1));
             BlockState block3 = level.getBlockState(pos.south(1));
-            BlockState block4 = level.getBlockState(pos.west(1);
+            BlockState block4 = level.getBlockState(pos.west(1));
             if (block1.getBlock() instanceof Rose)
+                System.out.println("IT WORKS!!!!");
                 return block1;
             if (block2.getBlock() instanceof Rose)
-                return block2;
+                System.out.println("IT WORKS!!!!");
+            return block2;
             if (block3.getBlock() instanceof Rose)
-                return block3;
+                System.out.println("IT WORKS!!!!");
+            return block3;
             if (block4.getBlock() instanceof Rose)
-                return block4;
+                System.out.println("IT WORKS!!!!");
+            return block4;
             int x = pos.getX();
             int y = pos.getY();
             int z = pos.getZ();
@@ -62,7 +66,7 @@ public class WateringCan extends Item {
             thingie = new BlockPos(x, y-1, z);
             search(level, thingie, i + 1);
         }
-
+        System.out.println("nothing there but it works!");
         return null;
     }
 
@@ -109,6 +113,7 @@ public class WateringCan extends Item {
                 first = false;
 
             } else {
+                search(level, blockPos, 0);
                 if (blockState.getBlock().equals(WHITE_ROSE.get())) {
                     newFlowerColorVal += 0;
                 } else if (blockState.getBlock().equals(PINK_ROSE.get())) {
