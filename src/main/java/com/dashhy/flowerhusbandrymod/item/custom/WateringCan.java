@@ -42,18 +42,22 @@ public class WateringCan extends Item {
             BlockState block3 = level.getBlockState(pos.south(1));
             BlockState block4 = level.getBlockState(pos.west(1));
             if (block1.getBlock() instanceof Rose) {
+                System.out.println(block1.getBlock() instanceof Rose);
                 System.out.println("IT WORKS!!!!");
                 return block1;
             }
             if (block2.getBlock() instanceof Rose) {
+                System.out.println(block2.getBlock() instanceof Rose);
                 System.out.println("IT WORKS!!!!");
                 return block2;
             }
             if (block3.getBlock() instanceof Rose) {
+                System.out.println(block3.getBlock() instanceof Rose);
                 System.out.println("IT WORKS!!!!");
                 return block3;
             }
             if (block4.getBlock() instanceof Rose) {
+                System.out.println(block4.getBlock() instanceof Rose);
                 System.out.println("IT WORKS!!!!");
                 return block4;
             }
@@ -66,10 +70,10 @@ public class WateringCan extends Item {
             thingie = new BlockPos(x + 1, y, z);
             search(level, thingie, i + 1);
 
-            thingie = new BlockPos(x-1, y , z);
+            thingie = new BlockPos(x - 1, y, z);
             search(level, thingie, i + 1);
 
-            thingie = new BlockPos(x, y, z-1);
+            thingie = new BlockPos(x, y - 1, z);
             search(level, thingie, i + 1);
         }
         System.out.println("nothing there but it works!");
@@ -109,37 +113,43 @@ public class WateringCan extends Item {
 
             search(level, blockPos, 0);
 
-            if (first) {
-                newFlowerColorVal = 0;
-                if (blockState.getBlock().equals(WHITE_ROSE.get())) {
-                    newFlowerColorVal += 0;
-                } else if (blockState.getBlock().equals(PINK_ROSE.get())) {
-                    newFlowerColorVal += 1;
-                } else if (blockState.getBlock().equals(RED_ROSE.get())) {
-                    newFlowerColorVal += 2;
-                } else if (blockState.getBlock().equals(ORANGE_ROSE.get())) {
-                    newFlowerColorVal += 3;
-                } else if (blockState.getBlock().equals(YELLOW_ROSE.get())) {
-                    newFlowerColorVal += 4;
-                } else if (blockState.getBlock().equals(RAINBOW_ROSE.get())) {
-                    newFlowerColorVal += 5;
-                }
-                first = false;
+            //if (first) {
+            newFlowerColorVal = 0;
+            if (blockState.getBlock().equals(WHITE_ROSE.get())) {
+                newFlowerColorVal += 0;
+            } else if (blockState.getBlock().equals(PINK_ROSE.get())) {
+                newFlowerColorVal += 1;
+            } else if (blockState.getBlock().equals(RED_ROSE.get())) {
+                newFlowerColorVal += 2;
+            } else if (blockState.getBlock().equals(ORANGE_ROSE.get())) {
+                newFlowerColorVal += 3;
+            } else if (blockState.getBlock().equals(YELLOW_ROSE.get())) {
+                newFlowerColorVal += 4;
+            } else if (blockState.getBlock().equals(RAINBOW_ROSE.get())) {
+                newFlowerColorVal += 5;
+            }
 
+
+            //} else {
+            BlockState autoFindBlock = search(level, blockPos, 0);
+
+            if (autoFindBlock == null) {
+                System.out.println("No flowers found");
             } else {
-
-                if (blockState.getBlock().equals(WHITE_ROSE.get())) {
+                if (autoFindBlock.getBlock().equals(WHITE_ROSE.get())) {
                     newFlowerColorVal += 0;
-                } else if (blockState.getBlock().equals(PINK_ROSE.get())) {
+                } else if (autoFindBlock.getBlock().equals(PINK_ROSE.get())) {
                     newFlowerColorVal += 1;
-                } else if (blockState.getBlock().equals(RED_ROSE.get())) {
+                } else if (autoFindBlock.getBlock().equals(RED_ROSE.get())) {
                     newFlowerColorVal += 2;
-                } else if (blockState.getBlock().equals(ORANGE_ROSE.get())) {
+                } else if (autoFindBlock.getBlock().equals(ORANGE_ROSE.get())) {
                     newFlowerColorVal += 3;
-                } else if (blockState.getBlock().equals(YELLOW_ROSE.get())) {
+                } else if (autoFindBlock.getBlock().equals(YELLOW_ROSE.get())) {
                     newFlowerColorVal += 4;
-                } else if (blockState.getBlock().equals(RAINBOW_ROSE.get())) {
+                } else if (autoFindBlock.getBlock().equals(RAINBOW_ROSE.get())) {
                     newFlowerColorVal += 5;
+                } else {
+                    System.out.println(autoFindBlock.getBlock());
                 }
 
                 newFlowerColorVal /= 2;
@@ -170,8 +180,11 @@ public class WateringCan extends Item {
                     ItemStack stack = new ItemStack(RAINBOW_ROSE.get());
                     player.getInventory().add(stack);
                 }
-                first = true;
             }
+
+
+
+            //}
             idkWhyThisNeedsToExistButHereWeAre = true;
         } else {
             idkWhyThisNeedsToExistButHereWeAre = false;
