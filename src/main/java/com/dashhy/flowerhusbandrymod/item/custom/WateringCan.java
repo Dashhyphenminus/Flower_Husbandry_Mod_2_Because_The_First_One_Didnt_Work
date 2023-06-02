@@ -1,21 +1,19 @@
 package com.dashhy.flowerhusbandrymod.item.custom;
 
 
+import com.dashhy.flowerhusbandrymod.block.Rose;
 import net.minecraft.core.BlockPos;
 
-import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import static com.dashhy.flowerhusbandrymod.block.ModBlocks.*;
-import com.dashhy.flowerhusbandrymod.block.ROSE;
 
 import java.util.Arrays;
 
@@ -49,6 +47,9 @@ public class WateringCan extends Item {
 
             BlockState test = level.getBlockState(blockPos.north(-1).east(2));
             System.out.println(test.getBlock());
+            if (test.getBlock() instanceof Rose) {
+                System.out.println("it is indeed an instance of rose");
+            }
 
 
             if (first) {
