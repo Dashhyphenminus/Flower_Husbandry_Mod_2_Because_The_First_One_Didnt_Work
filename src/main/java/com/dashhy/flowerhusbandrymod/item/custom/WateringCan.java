@@ -98,6 +98,7 @@ public class WateringCan extends Item {
                 System.out.println("it is indeed an instance of rose");
             }
 
+            search(level, blockPos, 0);
 
             if (first) {
                 newFlowerColorVal = 0;
@@ -117,7 +118,7 @@ public class WateringCan extends Item {
                 first = false;
 
             } else {
-                search(level, blockPos, 0);
+
                 if (blockState.getBlock().equals(WHITE_ROSE.get())) {
                     newFlowerColorVal += 0;
                 } else if (blockState.getBlock().equals(PINK_ROSE.get())) {
