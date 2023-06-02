@@ -30,8 +30,33 @@ public class WateringCan extends Item {
 
     private boolean  idkWhyThisNeedsToExistButHereWeAre = false;
 
+
+
+    public BlockState search(Level level, BlockPos pos, int i){
+
+        if(i<3){
+        BlockState block1 = level.getBlockState(pos.north(1);
+        BlockState block2 = level.getBlockState(pos.east(1);
+        BlockState block3 = level.getBlockState(pos.south(1));
+        BlockState block4 = level.getBlockState(pos.west(1);
+            if(block1.getBlock() instanceof Rose)
+                return block1;
+            if(block2.getBlock() instanceof Rose)
+                return block2;
+            if(block3.getBlock() instanceof Rose)
+                return block3;
+            if(block4.getBlock() instanceof Rose)
+                return block4;
+
+            search(level, );
+        }
+    }
     @Override
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
+
+
+
+
 
 
         if (!idkWhyThisNeedsToExistButHereWeAre) {
