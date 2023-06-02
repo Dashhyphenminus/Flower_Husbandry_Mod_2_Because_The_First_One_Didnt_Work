@@ -21,7 +21,7 @@ import java.util.Arrays;
 
 import org.jetbrains.annotations.NotNull;
 
-
+protected final RandomSource random = RandomSource.create();
 public class WateringCan extends Item {
     public WateringCan(Properties properties) {
         super(properties);
@@ -82,20 +82,28 @@ public class WateringCan extends Item {
 
     @Override
     public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
+        Level level = context.getLevel();
+        BlockPos blockPos = context.getClickedPos();
+        BlockState blockState = level.getBlockState(blockPos);
+
+        Player player = context.getPlayer();
+        assert !(player == null);
+        player.getCooldowns().addCooldown(this, 10);
 
 
+        double d0 = Math.random();
+        double d1 = Math.random();
+        double d2 = Math.random();
+        int x = blockPos.getX();
+        int y = blockPos.getY();
+        int z = blockPos.getZ();
+        level.addParticle(ParticleTypes.HEART, x, y + 0.5D, z, d0, d1, d2);
         if (!idkWhyThisNeedsToExistButHereWeAre) {
 
 
             //System.out.println("hello world");
 
-            Level level = context.getLevel();
-            BlockPos blockPos = context.getClickedPos();
-            BlockState blockState = level.getBlockState(blockPos);
 
-            Player player = context.getPlayer();
-            assert !(player == null);
-            player.getCooldowns().addCooldown(this, 10);
 
 
             BlockState test = level.getBlockState(blockPos.north(-1).east(2));
@@ -103,13 +111,9 @@ public class WateringCan extends Item {
             if (test.getBlock() instanceof Rose) {
                 System.out.println("it is indeed an instance of rose");
             }
-            double d0 = this.random.nextGaussian() * 0.02D;
-            double d1 = this.random.nextGaussian() * 0.02D;
-            double d2 = this.nextGaussian() * 0.02D;
-            int x = blockPos.getX();
-            int y = blockPos.getY();
-            int z = blockPos.getZ();
-            level.addParticle(ParticleTypes.HEART, x, y + 0.5D, z, d0, d1, d2);
+
+
+
 
             search(level, blockPos, 0);
 
