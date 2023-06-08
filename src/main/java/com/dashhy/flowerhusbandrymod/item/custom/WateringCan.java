@@ -67,6 +67,7 @@ public class WateringCan extends Item {
             BlockPos thingie = new BlockPos(x, y, z + 1);
             search(level, thingie, i + 1);
 
+
             thingie = new BlockPos(x + 1, y, z);
             search(level, thingie, i + 1);
 
@@ -75,6 +76,8 @@ public class WateringCan extends Item {
 
             thingie = new BlockPos(x, y - 1, z);
             search(level, thingie, i + 1);
+
+
         }
         System.out.println("nothing there but it works!");
         return null;
