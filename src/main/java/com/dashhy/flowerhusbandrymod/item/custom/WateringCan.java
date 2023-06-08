@@ -34,40 +34,72 @@ public class WateringCan extends Item {
 
     private boolean idkWhyThisNeedsToExistButHereWeAre = false;
 
+    private void swapBlockPos (int i, int j, ArrayList<BlockPos> list) {
+        BlockPos temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
+    }
+
+    private void swapDouble (int i, int j, ArrayList<Double> list) {
+        double temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
+    }
 
     public BlockState search(Level level, BlockPos pos) {
-            ArrayList poslist = new ArrayList();
+
+        ArrayList<BlockPos> posList = new ArrayList<BlockPos>();
+
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
         for(int i = 0; i<3; i++){
-            BlockPos newpos = new BlockPos(x-1+i, y, z-3);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-1+i, y, z-3);
+            posList.add(newPos);
         }
         for(int i = 0; i<5; i++){
-            BlockPos newpos = new BlockPos(x-2+i, y, z-2);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-2+i, y, z-2);
+            posList.add(newPos);
         }
         for(int i = 0; i<7; i++){
-            BlockPos newpos = new BlockPos(x-3+i, y, z-1);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-3+i, y, z-1);
+            posList.add(newPos);
         }
         for(int i = 0; i<7; i++){
-            BlockPos newpos = new BlockPos(x-3+i, y, z);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-3+i, y, z);
+            posList.add(newPos);
         }
         for(int i = 0; i<7; i++){
-            BlockPos newpos = new BlockPos(x-3+i, y, z+1);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-3+i, y, z+1);
+            posList.add(newPos);
         }
         for(int i = 0; i<5; i++){
-            BlockPos newpos = new BlockPos(x-2+i, y, z+2);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-2+i, y, z+2);
+            posList.add(newPos);
         }
         for(int i = 0; i<3; i++){
-            BlockPos newpos = new BlockPos(x-1+i, y, z+3);
-            poslist.add(newpos);
+            BlockPos newPos = new BlockPos(x-1+i, y, z+3);
+            posList.add(newPos);
         }
+
+        ArrayList<Double> distances = new ArrayList<Double>();
+
+        for (int i = 0; i < posList.size(); i ++) {
+            double distance = Math.sqrt((Math.pow(posList.get(i).getX(), 2)) + (Math.pow(posList.get(i).getY(), 2)));
+            distances.add(distance);
+        }
+
+        for (int i = 0; i < posList.size() - 1; i++) {
+            for (int j = i + i; j < posList.size(); j++) {
+                if (distances.get(j) < distances.get(i)) {
+                    swapDouble (i, j, distances);
+                    swapBlockPos(i, j, posList);
+                }
+            }
+        }
+
+        System.out.println(distances);
+
 
         return null;
     }
@@ -105,7 +137,7 @@ public class WateringCan extends Item {
             }
 
 
-            search(level, blockPos, 0);
+            search(level, blockPos);
 
             if (first) {
                 newFlowerColorVal = 0;
