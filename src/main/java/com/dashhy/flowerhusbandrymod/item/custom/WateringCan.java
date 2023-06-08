@@ -69,6 +69,17 @@ public class WateringCan extends Item {
             poslist.add(newpos);
         }
 
+
+
+        ArrayList<BlockPos> placeholder = new ArrayList<BlockPos>;
+        int length = placeholder.size();
+        for(int i = 0; i<length; i++){
+            BlockState block =level.getBlockState(placeholder.get(i));
+            if(block.getBlock() instanceof Rose){
+                return block;
+            }
+        }
+
         return null;
     }
 
