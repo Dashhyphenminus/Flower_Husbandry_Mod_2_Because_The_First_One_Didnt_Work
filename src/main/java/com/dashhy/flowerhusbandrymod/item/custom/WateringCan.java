@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.util.RandomSource;
+import java.util.ArrayList;
 
 import static com.dashhy.flowerhusbandrymod.block.ModBlocks.*;
 
@@ -34,49 +35,40 @@ public class WateringCan extends Item {
     private boolean idkWhyThisNeedsToExistButHereWeAre = false;
 
 
-    public BlockState search(Level level, BlockPos pos, int i) {
-
-        if (i < 3) {
-            BlockState block1 = level.getBlockState(pos.north(1));
-            BlockState block2 = level.getBlockState(pos.east(1));
-            BlockState block3 = level.getBlockState(pos.south(1));
-            BlockState block4 = level.getBlockState(pos.west(1));
-            if (block1.getBlock() instanceof Rose) {
-                System.out.println(block1.getBlock() instanceof Rose);
-                System.out.println("IT WORKS!!!!");
-                return block1;
-            }
-            if (block2.getBlock() instanceof Rose) {
-                System.out.println(block2.getBlock() instanceof Rose);
-                System.out.println("IT WORKS!!!!");
-                return block2;
-            }
-            if (block3.getBlock() instanceof Rose) {
-                System.out.println(block3.getBlock() instanceof Rose);
-                System.out.println("IT WORKS!!!!");
-                return block3;
-            }
-            if (block4.getBlock() instanceof Rose) {
-                System.out.println(block4.getBlock() instanceof Rose);
-                System.out.println("IT WORKS!!!!");
-                return block4;
-            }
-            int x = pos.getX();
-            int y = pos.getY();
-            int z = pos.getZ();
-            BlockPos thingie = new BlockPos(x, y, z + 1);
-            search(level, thingie, i + 1);
-
-            thingie = new BlockPos(x + 1, y, z);
-            search(level, thingie, i + 1);
-
-            thingie = new BlockPos(x - 1, y, z);
-            search(level, thingie, i + 1);
-
-            thingie = new BlockPos(x, y - 1, z);
-            search(level, thingie, i + 1);
+    public BlockState search(Level level, BlockPos pos) {
+            ArrayList poslist = new ArrayList();
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        for(int i = 0; i<3; i++){
+            BlockPos newpos = new BlockPos(x-1+i, y, z-3);
+            poslist.add(newpos);
         }
-        System.out.println("nothing there but it works!");
+        for(int i = 0; i<5; i++){
+            BlockPos newpos = new BlockPos(x-2+i, y, z-2);
+            poslist.add(newpos);
+        }
+        for(int i = 0; i<7; i++){
+            BlockPos newpos = new BlockPos(x-3+i, y, z-1);
+            poslist.add(newpos);
+        }
+        for(int i = 0; i<7; i++){
+            BlockPos newpos = new BlockPos(x-3+i, y, z);
+            poslist.add(newpos);
+        }
+        for(int i = 0; i<7; i++){
+            BlockPos newpos = new BlockPos(x-3+i, y, z+1);
+            poslist.add(newpos);
+        }
+        for(int i = 0; i<5; i++){
+            BlockPos newpos = new BlockPos(x-2+i, y, z+2);
+            poslist.add(newpos);
+        }
+        for(int i = 0; i<3; i++){
+            BlockPos newpos = new BlockPos(x-1+i, y, z+3);
+            poslist.add(newpos);
+        }
+
         return null;
     }
 
