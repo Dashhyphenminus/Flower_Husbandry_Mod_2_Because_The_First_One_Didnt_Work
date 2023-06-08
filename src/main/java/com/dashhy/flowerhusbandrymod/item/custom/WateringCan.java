@@ -88,7 +88,9 @@ public class WateringCan extends Item {
         ArrayList<Double> distances = new ArrayList<Double>();
 
         for (int i = 0; i < posList.size(); i++) {
-            double distance = Math.sqrt((Math.pow(posList.get(i).getX(), 2)) + (Math.pow(posList.get(i).getY(), 2)));
+            double xDifference = Math.abs(posList.get(i).getX() - pos.getX());
+            double zDifference = Math.abs(posList.get(i).getZ() - pos.getZ());
+            double distance = Math.sqrt((Math.pow(xDifference, 2)) + (Math.pow(zDifference, 2)));
             distances.add(distance);
         }
 
@@ -113,6 +115,19 @@ public class WateringCan extends Item {
         }
 
         return null;
+    }
+
+    private void spawnHearts (BlockPos pos, Level level) {
+        for (int i = 0; i < 3; i++) {
+            double d0 = Math.random();
+            double d1 = Math.random();
+            double d2 = Math.random();
+            double d3 = Math.random();
+            int x = pos.getX();
+            int y = pos.getY();
+            int z = pos.getZ();
+            level.addParticle(ParticleTypes.HEART, x + d0, y + d1, z + d2, d3, d3, d3);
+        }
     }
 
     @Override
@@ -191,37 +206,35 @@ public class WateringCan extends Item {
                 if (Math.random() < 0.02) {
                     ItemStack stack = new ItemStack(RAINBOW_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 } else if (newFlowerColorVal < colorValues[1]) {
                     ItemStack stack = new ItemStack(WHITE_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 } else if (newFlowerColorVal < colorValues[2]) {
                     ItemStack stack = new ItemStack(PINK_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 } else if (newFlowerColorVal < colorValues[3]) {
                     ItemStack stack = new ItemStack(RED_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 } else if (newFlowerColorVal < colorValues[4]) {
                     ItemStack stack = new ItemStack(ORANGE_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 } else if (newFlowerColorVal < colorValues[5]) {
                     ItemStack stack = new ItemStack(YELLOW_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 } else {
                     ItemStack stack = new ItemStack(RAINBOW_ROSE.get());
                     player.getInventory().add(stack);
+                    spawnHearts (blockPos, level);
                 }
             }
 
-            for (int i = 0; i < 3; i++) {
-                double d0 = Math.random();
-                double d1 = Math.random();
-                double d2 = Math.random();
-                double d3 = Math.random();
-                int x = blockPos.getX();
-                int y = blockPos.getY();
-                int z = blockPos.getZ();
-                level.addParticle(ParticleTypes.HEART, x + d0, y + d1, z + d2, d3, d3, d3);
-            }
+
 
             //first = true;
 
@@ -231,8 +244,6 @@ public class WateringCan extends Item {
         }
 
 
-        return super.
-
-                useOn(context);
+        return super.useOn(context);
     }
 }
