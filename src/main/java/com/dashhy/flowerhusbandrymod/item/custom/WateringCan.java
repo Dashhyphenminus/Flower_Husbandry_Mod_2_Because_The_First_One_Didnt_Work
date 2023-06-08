@@ -71,7 +71,7 @@ public class WateringCan extends Item {
 
 
 
-        ArrayList<BlockPos> placeholder = new ArrayList<BlockPos>;
+        ArrayList<BlockPos> placeholder = new ArrayList<BlockPos>();
         int length = placeholder.size();
         for(int i = 0; i<length; i++){
             BlockState block =level.getBlockState(placeholder.get(i));
@@ -116,7 +116,7 @@ public class WateringCan extends Item {
             }
 
 
-            search(level, blockPos, 0);
+            search(level, blockPos);
 
             //if (first) {
             newFlowerColorVal = 0;
@@ -136,7 +136,7 @@ public class WateringCan extends Item {
 
 
             //} else {
-            BlockState autoFindBlock = search(level, blockPos, 0);
+            BlockState autoFindBlock = search(level, blockPos);
 
             if (autoFindBlock == null) {
                 System.out.println("No flowers found");
