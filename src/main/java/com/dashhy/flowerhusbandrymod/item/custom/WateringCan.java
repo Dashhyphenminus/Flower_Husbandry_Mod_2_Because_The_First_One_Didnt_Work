@@ -21,7 +21,7 @@ import java.util.Arrays;
 
 import org.jetbrains.annotations.NotNull;
 
-protected final RandomSource random = RandomSource.create();
+//protected final RandomSource random = RandomSource.create();
 public class WateringCan extends Item {
     public WateringCan(Properties properties) {
         super(properties);
@@ -64,7 +64,7 @@ public class WateringCan extends Item {
             int x = pos.getX();
             int y = pos.getY();
             int z = pos.getZ();
-            BlockPos thingie = new BlockPos(x, y , z+1);
+            BlockPos thingie = new BlockPos(x, y, z + 1);
             search(level, thingie, i + 1);
 
             thingie = new BlockPos(x + 1, y, z);
@@ -90,20 +90,20 @@ public class WateringCan extends Item {
         assert !(player == null);
         player.getCooldowns().addCooldown(this, 10);
 
-
-        double d0 = Math.random();
-        double d1 = Math.random();
-        double d2 = Math.random();
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        level.addParticle(ParticleTypes.HEART, x, y + 0.5D, z, d0, d1, d2);
+        for (int i = 0; i < 3; i++) {
+            double d0 = Math.random();
+            double d1 = Math.random();
+            double d2 = Math.random();
+            double d3 = Math.random();
+            int x = blockPos.getX();
+            int y = blockPos.getY();
+            int z = blockPos.getZ();
+            level.addParticle(ParticleTypes.HEART, x + d0, y + d1, z + d2, d3, d3, d3);
+        }
         if (!idkWhyThisNeedsToExistButHereWeAre) {
 
 
             //System.out.println("hello world");
-
-
 
 
             BlockState test = level.getBlockState(blockPos.north(-1).east(2));
@@ -111,8 +111,6 @@ public class WateringCan extends Item {
             if (test.getBlock() instanceof Rose) {
                 System.out.println("it is indeed an instance of rose");
             }
-
-
 
 
             search(level, blockPos, 0);
@@ -185,7 +183,6 @@ public class WateringCan extends Item {
                     player.getInventory().add(stack);
                 }
             }
-
 
 
             //}
